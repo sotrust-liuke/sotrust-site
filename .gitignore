@@ -1,0 +1,7 @@
+# 忽略工作区内的临时文件
+.workbuddy/
+*.py
+上线手册.md
+
+# 大文件安装包不入 git，改用 GitHub Releases 托管
+assets/downloads/*.exe

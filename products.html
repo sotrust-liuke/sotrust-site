@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Products — SOTRUST™</title>
+<meta name="description" content="SOTRUST products: S68 hall-effect magnetic keyboard and U350 dual-port USB drive. Backed by our own software ecosystem.">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.prod-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;padding:24px 0 80px}
+.prod{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:0;position:relative;overflow:hidden;transition:.25s;display:flex;flex-direction:column}
+.prod:hover{border-color:rgba(77,159,255,.5);transform:translateY(-4px);box-shadow:0 18px 50px rgba(0,0,0,.5)}
+.prod .img{background:radial-gradient(ellipse at center,rgba(77,159,255,.08),transparent 70%);padding:28px;display:flex;align-items:center;justify-content:center;height:240px;border-bottom:1px solid var(--line)}
+.prod .img img{max-width:100%;max-height:180px;object-fit:contain}
+.prod .body{padding:24px;display:flex;flex-direction:column;flex:1}
+.prod .p-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px}
+.prod .p-icon{width:48px;height:48px;border-radius:12px;background:var(--accent-grad);display:grid;place-items:center;font-size:22px;color:#04101f;box-shadow:0 0 20px rgba(77,159,255,.4)}
+.prod h3{font-size:22px;margin-bottom:6px}
+.prod p{color:var(--muted);font-size:14px;margin-bottom:18px;flex:1}
+.specs{display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
+.spec{display:flex;justify-content:space-between;font-size:13px;padding-bottom:8px;border-bottom:1px solid rgba(120,160,255,.08)}
+.spec .k{color:var(--muted)}
+.spec .v{font-weight:600;color:var(--cyan)}
+.prod .cta-row{display:flex;gap:10px;flex-wrap:wrap}
+@media(max-width:960px){.prod-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="logo"><img src="assets/logo/icon.svg" alt="SOTRUST" width="32" height="32"><span>SO<b>TRUST</b></span></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="products.html" class="active">Products</a>
+      <a href="software.html">Software</a>
+      <a href="partners.html">Partners</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="nav-cta">Get a Quote</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-head">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="index.html">Home</a> / <span>Products</span></div>
+    <div class="eyebrow">Our Lineup</div>
+    <h1>Products</h1>
+    <p class="lede">A focused lineup, engineered properly. We launch few products and do them right — each backed by our own software.</p>
+  </div>
+</header>
+
+<section class="wrap prod-grid">
+  <div class="prod">
+    <div class="img"><img src="assets/products/s68/hero-white.jpeg" alt="S68"></div>
+    <div class="body">
+      <div class="p-top"><div class="p-icon">⌨</div><span class="pill">Magnetic Switch</span></div>
+      <h3>S68 Magnetic Keyboard</h3>
+      <p>Hall-effect magnetic switches with 0.01mm precision, 8KHz polling, and per-key adjustable actuation — a value-first esports keyboard.</p>
+      <div class="specs">
+        <div class="spec"><span class="k">Trigger</span><span class="v">0.01 mm</span></div>
+        <div class="spec"><span class="k">Polling</span><span class="v">8000 Hz</span></div>
+        <div class="spec"><span class="k">Latency</span><span class="v">0.2 ms</span></div>
+        <div class="spec"><span class="k">Layout</span><span class="v">68-Key Compact</span></div>
+      </div>
+      <div class="cta-row">
+        <a href="s68.html" class="btn primary">View Product →</a>
+        <a href="https://www.amazon.com/dp/B0H9D6XK6K?th=1" target="_blank" rel="noopener" class="btn amazon"><span class="amz">🛒 Amazon</span></a>
+      </div>
+    </div>
+  </div>
+  <div class="prod">
+    <div class="img"><img src="assets/products/u350/hero-main.jpg" alt="U350"></div>
+    <div class="body">
+      <div class="p-top"><div class="p-icon">💾</div><span class="pill">Featured</span></div>
+      <h3>U350 Dual-Port USB Drive</h3>
+      <p>Rotating metal drive with both USB-A and USB-C, silicone caps, and 3-protection — built for everyday carry.</p>
+      <div class="specs">
+        <div class="spec"><span class="k">Interface</span><span class="v">USB-A + USB-C</span></div>
+        <div class="spec"><span class="k">Capacity</span><span class="v">32 / 64 / 128 GB</span></div>
+        <div class="spec"><span class="k">Standard</span><span class="v">USB 3.0</span></div>
+        <div class="spec"><span class="k">Body</span><span class="v">Rotating Metal</span></div>
+      </div>
+      <div class="cta-row">
+        <a href="u350.html" class="btn primary">View Product →</a>
+        <a href="https://www.amazon.com/dp/B0H49N1F6R?th=1" target="_blank" rel="noopener" class="btn amazon"><span class="amz">🛒 Amazon</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="index.html" class="logo"><img src="assets/logo/icon.svg" alt="SOTRUST" width="32" height="32"><span>SO<b>TRUST</b></span></a>
+        <p>Precision peripherals and storage. Engineered to trust.</p>
+      </div>
+      <div><h5>Products</h5><a href="s68.html">S68 Keyboard</a><a href="u350.html">U350 USB Drive</a><a href="software.html">Software</a></div>
+      <div><h5>Company</h5><a href="about.html">About</a><a href="partners.html">Partners</a><a href="contact.html">Contact</a></div>
+      <div><h5>Legal</h5><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="support.html">Support</a></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Nanjing Xingui Yuanying Trading Co., Ltd. · SOTRUST™ is a pending trademark.</span>
+      <span>www.sotrust.net</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
