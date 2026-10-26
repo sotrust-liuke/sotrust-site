@@ -6,19 +6,19 @@ Brand hall-effect magnetic keyboards and USB storage for the North American mark
 
 ## Products
 
-- [S68 Hall-Effect Magnetic Keyboard](https://www.sotrust.net/s68.html): 0.01mm trigger precision, 1000Hz polling rate, 1ms response, adjustable actuation via hall-effect magnetic switches, configurable with the SOTRUST S68 Setup driver.
-- [U350 Dual-Port Metal USB Drive](https://www.sotrust.net/u350.html): USB-A + USB-C dual interface, rotating metal body, silicone caps, 3-protection design.
+- [S68 Hall-Effect Magnetic Keyboard](https://www.sotrust.net/s68): 0.01mm trigger precision, 1000Hz polling rate, 1ms response, adjustable actuation via hall-effect magnetic switches, configurable with the SOTRUST S68 Setup driver.
+- [U350 Dual-Port Metal USB Drive](https://www.sotrust.net/u350): USB-A + USB-C dual interface, rotating metal body, silicone caps, 3-protection design.
 
 ## Software
 
-- [Software & Downloads](https://www.sotrust.net/software.html): S68 Setup driver and SOTRUST PIANO app, free downloads with version history.
+- [Software & Downloads](https://www.sotrust.net/software): S68 Setup driver and SOTRUST PIANO app, free downloads with version history.
 
 ## Company
 
-- [About SOTRUST](https://www.sotrust.net/about.html): Brand story — Engineered to Trust.
-- [Partners / Wholesale](https://www.sotrust.net/partners.html): Wholesale pricing, flexible MOQ, custom branding (ODM) for distributors, retailers, and esports organizations.
-- [Support & Warranty](https://www.sotrust.net/support.html): Warranty policy and FAQ for S68 and U350.
-- [Contact / Request a Quote](https://www.sotrust.net/contact.html): Wholesale, retail, esports, and product inquiries — liuke@sotrust.net.
+- [About SOTRUST](https://www.sotrust.net/about): Brand story — Engineered to Trust.
+- [Partners / Wholesale](https://www.sotrust.net/partners): Wholesale pricing, flexible MOQ, custom branding (ODM) for distributors, retailers, and esports organizations.
+- [Support & Warranty](https://www.sotrust.net/support): Warranty policy and FAQ for S68 and U350.
+- [Contact / Request a Quote](https://www.sotrust.net/contact): Wholesale, retail, esports, and product inquiries — liuke@sotrust.net.
 
 ## Key Facts
 
