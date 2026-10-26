@@ -1,0 +1,28 @@
+# SOTRUST
+
+> SOTRUST (SOTRUST™) is a peripherals brand engineering hall-effect magnetic switch keyboards and dual-port USB storage, with its own software ecosystem (S68 Setup driver, SOTRUST PIANO). Brand philosophy: "No So, No Trust" — trust as the foundation of trade.
+
+Brand hall-effect magnetic keyboards and USB storage for the North American market. ODM / wholesale / distribution inquiries welcome (flexible MOQ, custom branding).
+
+## Products
+
+- [S68 Hall-Effect Magnetic Keyboard](https://www.sotrust.net/s68.html): 0.01mm trigger precision, 1000Hz polling rate, 1ms response, adjustable actuation via hall-effect magnetic switches, configurable with the SOTRUST S68 Setup driver.
+- [U350 Dual-Port Metal USB Drive](https://www.sotrust.net/u350.html): USB-A + USB-C dual interface, rotating metal body, silicone caps, 3-protection design.
+
+## Software
+
+- [Software & Downloads](https://www.sotrust.net/software.html): S68 Setup driver and SOTRUST PIANO app, free downloads with version history.
+
+## Company
+
+- [About SOTRUST](https://www.sotrust.net/about.html): Brand story — Engineered to Trust.
+- [Partners / Wholesale](https://www.sotrust.net/partners.html): Wholesale pricing, flexible MOQ, custom branding (ODM) for distributors, retailers, and esports organizations.
+- [Support & Warranty](https://www.sotrust.net/support.html): Warranty policy and FAQ for S68 and U350.
+- [Contact / Request a Quote](https://www.sotrust.net/contact.html): Wholesale, retail, esports, and product inquiries — liuke@sotrust.net.
+
+## Key Facts
+
+- Hall-effect (magnetic) switch keyboards with adjustable actuation, developed and manufactured in-house.
+- Own driver ecosystem: S68 Setup and SOTRUST PIANO (magnetic-switch piano app).
+- Serves North American distributors, retail chains, independent retailers, and university esports programs.
+- Contact for ODM / white-label cooperation: liuke@sotrust.net

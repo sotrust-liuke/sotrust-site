@@ -1,0 +1,40 @@
+# SOTRUST — robots.txt
+# 允许所有搜索引擎 + AI 爬虫抓取
+
+User-agent: *
+Allow: /
+Disallow: /css/
+Disallow: /js/
+
+# --- AI / GEO 爬虫（显式放行，确保 ChatGPT/Perplexity/Claude/Gemini 可引用）---
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+Sitemap: https://www.sotrust.net/sitemap.xml
