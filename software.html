@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Software & Downloads — SOTRUST™</title>
-<meta name="description" content="Download SOTRUST S68 Setup driver and SOTRUST PIANO app. Free downloads with version history and update notes.">
+<title>SOTRUST Driver Download | S68 Keyboard Software &amp; Manual</title>
+<meta name="description" content="Download the latest SOTRUST S68 driver for Windows and macOS, the English user manual PDF, and the PIANO app. Direct links — no registration, no password.">
 <link rel="stylesheet" href="css/style.css">
 <style>
-.dl-grid{display:flex;flex-direction:column;gap:20px;padding-bottom:80px}
+.dl-grid{display:flex;flex-direction:column;gap:20px;padding-bottom:40px}
 .dl-card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:28px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;transition:.2s}
 .dl-card:hover{border-color:rgba(77,159,255,.4)}
 .dl-card .ic{font-size:30px}
@@ -16,26 +16,100 @@
 .dl-card p{color:var(--muted);font-size:14px;margin-top:8px}
 .dl-meta{display:flex;gap:16px;flex-wrap:wrap;margin-top:14px;font-size:12px;color:var(--muted)}
 .dl-meta span{display:flex;align-items:center;gap:5px}
-.dl-actions{display:flex;flex-direction:column;gap:10px;min-width:160px}
+.dl-actions{display:flex;flex-direction:column;gap:10px;min-width:180px}
+.dl-actions .btn{min-height:48px;display:inline-flex;align-items:center;justify-content:center;text-align:center}
+.mirror-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+.mirror-row a{color:var(--cyan);text-decoration:none}
+.mirror-row a:hover{text-decoration:underline}
+.sha{margin-top:12px;font-size:12px;color:var(--muted)}
+.sha summary{cursor:pointer;color:var(--text);font-weight:600;user-select:none}
+.sha summary::marker{color:var(--cyan)}
+.sha code{display:block;margin-top:8px;padding:10px 12px;background:rgba(77,159,255,.07);border:1px solid var(--line);border-radius:10px;font-size:11px;word-break:break-all;color:var(--cyan);font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
 .note{background:rgba(53,224,208,.06);border:1px solid rgba(53,224,208,.2);border-radius:14px;padding:18px 22px;margin:24px 0;font-size:14px;color:var(--text)}
 .note b{color:var(--cyan)}
 .changelog{font-size:13px;color:var(--muted);margin-top:14px;line-height:1.8}
 .changelog b{color:var(--text)}
 .changelog ul{padding-left:20px;margin-top:6px}
 .changelog li{margin:3px 0}
-@media(max-width:960px){.dl-card{grid-template-columns:1fr}.dl-actions{width:100%}}
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:22px}
+.step-card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:24px}
+.step-card .n{width:34px;height:34px;border-radius:10px;background:var(--cyan);color:#04202a;font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.step-card h3{font-size:16px;margin-bottom:8px}
+.step-card p{color:var(--muted);font-size:13.5px;line-height:1.65}
+.conn{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--cyan);border-radius:16px;padding:26px 28px;margin:26px 0}
+.conn h3{font-size:18px;margin-bottom:10px}
+.conn p{color:var(--muted);font-size:14px;line-height:1.7}
+.conn ul{margin:12px 0 0;padding-left:20px;color:var(--muted);font-size:13px;line-height:1.8}
+.faq-list{margin-top:22px;display:flex;flex-direction:column;gap:12px}
+.faq-list details{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:0 22px;transition:.2s}
+.faq-list details[open]{border-color:rgba(77,159,255,.45)}
+.faq-list summary{cursor:pointer;font-weight:700;font-size:15px;padding:18px 0;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq-list summary::-webkit-details-marker{display:none}
+.faq-list summary::after{content:"+";color:var(--cyan);font-size:20px;font-weight:600;flex-shrink:0}
+.faq-list details[open] summary::after{content:"–"}
+.faq-list .a{color:var(--muted);font-size:14px;line-height:1.7;padding:0 0 18px}
+.verhist{margin-top:22px;background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.verhist table{width:100%;border-collapse:collapse;font-size:13.5px}
+.verhist th{text-align:left;padding:14px 20px;font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:var(--cyan);border-bottom:1px solid var(--line)}
+.verhist td{padding:13px 20px;border-bottom:1px solid var(--line);color:var(--muted);vertical-align:top}
+.verhist tr:last-child td{border-bottom:none}
+.verhist td:first-child{color:var(--text);font-weight:600;white-space:nowrap}
+.verhist .prev-note{padding:14px 20px;font-size:12.5px;color:var(--muted);border-top:1px solid var(--line)}
+.verhist .prev-note a{color:var(--cyan)}
+#toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--panel);border:1px solid var(--cyan);color:var(--text);font-size:13.5px;padding:13px 20px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:.3s;z-index:99;max-width:90vw}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.sec-sub{margin-top:56px}
+@media(max-width:960px){.dl-card{grid-template-columns:1fr}.dl-actions{width:100%}.steps-grid{grid-template-columns:1fr}}
 </style>
 <link rel="canonical" href="https://www.sotrust.net/software">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="SOTRUST">
-<meta property="og:title" content="Software & Downloads — SOTRUST™">
-<meta property="og:description" content="Download SOTRUST S68 Setup driver and SOTRUST PIANO app. Free downloads with version history and update notes.">
+<meta property="og:title" content="SOTRUST Driver Download | S68 Keyboard Software &amp; Manual">
+<meta property="og:description" content="Download the latest SOTRUST S68 driver for Windows and macOS, the English user manual PDF, and the PIANO app. Direct links — no registration, no password.">
 <meta property="og:url" content="https://www.sotrust.net/software">
 <meta property="og:image" content="https://www.sotrust.net/assets/products/s68/hero-white.jpeg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Software & Downloads — SOTRUST™">
-<meta name="twitter:description" content="Download SOTRUST S68 Setup driver and SOTRUST PIANO app. Free downloads with version history and update notes.">
+<meta name="twitter:title" content="SOTRUST Driver Download | S68 Keyboard Software &amp; Manual">
+<meta name="twitter:description" content="Download the latest SOTRUST S68 driver for Windows and macOS, the English user manual PDF, and the PIANO app. Direct links — no registration, no password.">
 <meta name="twitter:image" content="https://www.sotrust.net/assets/products/s68/hero-white.jpeg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Windows shows \"Unknown publisher\" — is it safe?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Our installer is digitally signed by SOTRUST. You can verify it in the file properties under Digital Signatures. Until the signed build is published, compare the SHA-256 of the downloaded file with the value listed on this page."}
+    },
+    {
+      "@type": "Question",
+      "name": "Does the S68 support wireless or Bluetooth?",
+      "acceptedAnswer": {"@type": "Answer", "text": "No. The S68 is a wired keyboard and connects only with the included USB-C to USB-A cable. There is no 2.4G, Bluetooth or wireless mode, and no receiver is needed or included. Earlier printed manuals mentioned a 2.5GHz wireless mode — that was a documentation error and has been corrected."}
+    },
+    {
+      "@type": "Question",
+      "name": "The keyboard is not detected.",
+      "acceptedAnswer": {"@type": "Answer", "text": "Use a USB-C cable that supports data transfer, try another USB port, and close other keyboard software before connecting."}
+    },
+    {
+      "@type": "Question",
+      "name": "Does it work with macOS?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Yes. Both Apple silicon and Intel Macs are supported, and the macOS app is signed and notarized by Apple — it opens with a normal double-click."}
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need the software?",
+      "acceptedAnswer": {"@type": "Answer", "text": "No. The keyboard works plug-and-play. Install the driver only if you want per-key actuation, Rapid Trigger, macros or lighting control."}
+    },
+    {
+      "@type": "Question",
+      "name": "Which file should I download?",
+      "acceptedAnswer": {"@type": "Answer", "text": "One Windows driver covers the S68. Mac users pick the Apple silicon or Intel build. The manual is device-specific — choose S68."}
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -57,14 +131,14 @@
   <div class="wrap">
     <div class="breadcrumb"><a href="/">Home</a> / <span>Software &amp; Downloads</span></div>
     <div class="eyebrow">Software Ecosystem</div>
-    <h1>Software &amp; Downloads</h1>
-    <p class="lede">Hardware is only half the story. Download our driver suite and companion apps — free, with version history and update notes.</p>
+    <h1>SOTRUST Driver &amp; Manual Downloads</h1>
+    <p class="lede">Download the latest driver, firmware and manuals for SOTRUST devices.<br>No registration, no password.</p>
   </div>
 </header>
 
 <section class="wrap">
   <div class="note">
-    <b>Tip:</b> The S68 keyboard works plug-and-play right out of the box. Install the SOTRUST tool below to unlock advanced features like Rapid Trigger, 0.01mm adjustable actuation, key remapping, and the Magnetic Piano mode.
+    <b>Tip:</b> The S68 keyboard works plug-and-play right out of the box. Install the SOTRUST tool below only if you want advanced features like Rapid Trigger, 0.01mm adjustable actuation, key remapping, and the Magnetic Piano mode.
   </div>
 
   <div class="dl-grid">
@@ -73,12 +147,12 @@
       <div>
         <div class="ic">🪟</div>
         <h3>S68 Driver — Windows</h3>
-        <span class="ver">b1037 · Windows 7 / 8.1 / 10 / 11</span>
+        <span class="ver">v b1037 · Windows 10 / 11 (64-bit)</span>
         <p>Full configuration tool for the S68 magnetic switch keyboard. Configure per-key actuation points, Rapid Trigger, DKS / MT / TGL advanced key actions, macros, and full RGB lighting — all from one native Windows app.</p>
         <div class="dl-meta">
-          <span>🖥 Windows 7 SP1 / 8.1 / 10 / 11</span>
-          <span>💾 2.3 MB</span>
-          <span>📅 Oct 2026</span>
+          <span>🖥 Windows 10 / 11 (64-bit) · Win 7 SP1 / 8.1 need .NET 4.8</span>
+          <span>💾 2.25 MB</span>
+          <span>📅 2026-10-12</span>
         </div>
         <div class="changelog">
           <b>System requirements:</b>
@@ -97,9 +171,15 @@
             <li>Firmware update channel (delivered in-app)</li>
           </ul>
         </div>
+        <details class="sha">
+          <summary>SHA-256 checksum</summary>
+          <code>f35921ae925c72c8804e6ec6fa4b7e54ab82584e7196e93e80ab832793487081</code>
+          <p style="margin-top:8px;font-size:11.5px">Compare with the downloaded file to confirm it is intact: <code style="display:inline;padding:2px 6px;font-size:11px">certutil -hashfile SOTRUST-S68-Setup.exe SHA256</code> (Windows) or <code style="display:inline;padding:2px 6px;font-size:11px">shasum -a 256 SOTRUST-S68-Setup.exe</code>.</p>
+        </details>
       </div>
       <div class="dl-actions">
-        <a href="https://github.com/sotrust-liuke/sotrust-site/releases/download/v1.0/SOTRUST-S68-Setup.exe" class="btn primary sm">⬇ Download for Windows</a>
+        <a href="https://github.com/sotrust-liuke/sotrust-site/releases/download/v1.0/SOTRUST-S68-Setup.exe" class="btn primary sm dl-primary">⬇ Download for Windows</a>
+        <div class="mirror-row">Primary link failed? <a href="https://github.com/sotrust-liuke/sotrust-site/releases/latest/download/SOTRUST-S68-Setup.exe">Use the mirror →</a></div>
         <a href="https://github.com/sotrust-liuke/sotrust-site/releases/download/v1.0/S68-Driver-Windows-User-Notes.txt" class="btn ghost sm" target="_blank" rel="noopener">📄 User Notes</a>
         <a href="https://apps.microsoft.com/" target="_blank" rel="noopener" class="btn ghost sm">🛍 Microsoft Store</a>
       </div>
@@ -110,12 +190,13 @@
       <div>
         <div class="ic">🍎</div>
         <h3>S68 Driver — macOS</h3>
-        <span class="ver">b1037-en · macOS 12 Monterey or later</span>
+        <span class="ver">b1037-en · macOS 12 Monterey or later · Signed &amp; notarized by Apple</span>
         <p>Unlock the full power of your S68 magnetic switch keyboard. Configure per-key actuation points, rapid trigger, DKS / MT / TGL advanced key actions, macros, and full RGB lighting — all from one native macOS app.</p>
         <div class="dl-meta">
           <span>🖥 Apple silicon (M1–M4) &amp; Intel</span>
-          <span>💾 21 MB (Silicon) / 17 MB (Intel)</span>
-          <span>📅 Oct 12, 2026</span>
+          <span>💾 21.5 MB (Silicon) / 16.7 MB (Intel)</span>
+          <span>📅 2026-10-12</span>
+          <span>✅ Signed &amp; notarized by Apple</span>
         </div>
         <div class="changelog">
           <b>Not sure which one?</b> Apple menu → About This Mac: "Chip" = Apple silicon, "Processor" = Intel.
@@ -124,11 +205,51 @@
             <li>Requires a USB <b>data</b> cable (charge-only cables are not supported)</li>
           </ul>
         </div>
+        <details class="sha">
+          <summary>SHA-256 checksums</summary>
+          <code>Apple silicon · 896a9566737e1db05991bd15a524e5c5e21b1a43feac5a2796c11b3a96315309<br><br>Intel · 39428aedeaa7e2c7bd8cac336c9ccb1287ea7dca6eb6162062e9957317f8cd02</code>
+        </details>
       </div>
       <div class="dl-actions">
-        <a href="https://github.com/sotrust-liuke/sotrust-site/releases/download/v1.0/S68-Driver-macOS-AppleSilicon.zip" class="btn primary sm">⬇ Apple silicon</a>
-        <a href="https://github.com/sotrust-liuke/sotrust-site/releases/download/v1.0/S68-Driver-macOS-Intel.zip" class="btn primary sm">⬇ Intel</a>
+        <a href="https://github.com/sotrust-liuke/sotrust-site/releases/download/v1.0/S68-Driver-macOS-AppleSilicon.zip" class="btn primary sm dl-primary">⬇ Apple silicon</a>
+        <a href="https://github.com/sotrust-liuke/sotrust-site/releases/download/v1.0/S68-Driver-macOS-Intel.zip" class="btn primary sm dl-primary">⬇ Intel</a>
+        <div class="mirror-row">Primary link failed? <a href="https://github.com/sotrust-liuke/sotrust-site/releases/latest/download/S68-Driver-macOS-AppleSilicon.zip">Silicon mirror</a> · <a href="https://github.com/sotrust-liuke/sotrust-site/releases/latest/download/S68-Driver-macOS-Intel.zip">Intel mirror</a></div>
         <a href="https://github.com/sotrust-liuke/sotrust-site/releases/download/v1.0/S68-Driver-macOS-Customer-Guide.txt" class="btn ghost sm" target="_blank" rel="noopener">📄 Customer Guide</a>
+      </div>
+    </div>
+
+    <!-- User Manual — English (PDF) -->
+    <div class="dl-card">
+      <div>
+        <div class="ic">📘</div>
+        <h3>User Manual (PDF) — English</h3>
+        <span class="ver">v1.0 · S68 · English</span>
+        <p>Quick start &amp; user manual for the S68: connection, three-step driver installation, software features, firmware updates, troubleshooting and full specifications. Fully up to date — the S68 is a wired keyboard, and this manual contains no outdated wireless references.</p>
+        <div class="dl-meta">
+          <span>📖 S68 · English · 6 pages</span>
+          <span>💾 14 KB</span>
+          <span>📅 2026-10-29</span>
+        </div>
+        <details class="sha">
+          <summary>SHA-256 checksum</summary>
+          <code>8ba54a2a9a55643fb517914bb5aaf3a19f17f5b7f27aec1d386955d86b9b593c</code>
+        </details>
+      </div>
+      <div class="dl-actions">
+        <a href="assets/downloads/SOTRUST-S68-Manual-EN-v1.0.pdf" class="btn primary sm dl-primary" target="_blank" rel="noopener">⬇ Download manual (PDF)</a>
+      </div>
+    </div>
+
+    <!-- Setup video / illustrated guide -->
+    <div class="dl-card">
+      <div>
+        <div class="ic">▶️</div>
+        <h3>Watch Setup Video</h3>
+        <span class="ver">60 seconds</span>
+        <p>A one-minute walkthrough of download, install and first connection. While the video is being finalized, the illustrated three-step guide below covers the same process.</p>
+      </div>
+      <div class="dl-actions">
+        <a href="#install" class="btn ghost sm">See the 3-step guide ↓</a>
       </div>
     </div>
 
@@ -176,11 +297,107 @@
         </div>
       </div>
       <div class="dl-actions">
-        <a href="https://github.com/sotrust-liuke/sotrust-site/releases/download/v1.0/SOTRUST-S68-Setup.exe" class="btn ghost sm">Get the updater</a>
+        <a href="https://github.com/sotrust-liuke/sotrust-site/releases/download/v1.0/SOTRUST-S68-Setup.exe" class="btn ghost sm dl-primary">Get the updater</a>
       </div>
     </div>
   </div>
+
+  <!-- ============ 3-step install ============ -->
+  <div class="sec-sub" id="install">
+    <div class="sec-head">
+      <div class="eyebrow">Installation</div>
+      <h2>Install in three steps</h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="n">1</div>
+        <h3>Download and run the driver installer</h3>
+        <p>Pick your system above — Windows (one installer covers every S68) or macOS (Apple silicon / Intel). Links are direct: no sign-up, no password.</p>
+      </div>
+      <div class="step-card">
+        <div class="n">2</div>
+        <h3>Close other keyboard software, then follow the on-screen steps</h3>
+        <p>Quit any other keyboard utility first so it cannot grab the device. Windows needs an administrator account. On macOS the app is signed and notarized by Apple — a normal double-click is enough.</p>
+      </div>
+      <div class="step-card">
+        <div class="n">3</div>
+        <h3>Connect the keyboard with the included cable</h3>
+        <p>Use the included USB-C to USB-A cable, then open SOTRUST software to set per-key actuation, Rapid Trigger and lighting. <b>S68 connects with a cable only — there is no wireless mode.</b></p>
+      </div>
+    </div>
+
+    <!-- ============ Connection block ============ -->
+    <div class="conn">
+      <h3>Connection (S68)</h3>
+      <p>The S68 is a wired keyboard. Connect it to your computer with the included USB-C to USB-A cable — no receiver, no pairing, no battery. Plug it in and it works immediately; the software is optional and only needed for customization.</p>
+      <ul>
+        <li>Use a USB-C cable that supports <b>data transfer</b> — charge-only cables cannot be recognized.</li>
+        <li>If your computer only has USB-A ports, the included cable connects directly (it is C-to-A).</li>
+        <li>No 2.4G, Bluetooth or wireless mode; no receiver is included or needed.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============ FAQ ============ -->
+  <div class="sec-sub">
+    <div class="sec-head">
+      <div class="eyebrow">FAQ</div>
+      <h2>Frequently asked questions</h2>
+    </div>
+    <div class="faq-list">
+      <details>
+        <summary>Windows shows "Unknown publisher" — is it safe?</summary>
+        <div class="a">Our installer is digitally signed by SOTRUST. You can verify it in the file properties under Digital Signatures. Until the signed build is published, expand the <b>SHA-256 checksum</b> under the Windows download above and compare it with your downloaded file — if they match, the file is intact and unmodified.</div>
+      </details>
+      <details>
+        <summary>Does the S68 support wireless or Bluetooth?</summary>
+        <div class="a">No. The S68 is a wired keyboard and connects only with the included USB-C to USB-A cable. There is no 2.4G, Bluetooth or wireless mode, and no receiver is needed or included. Earlier printed manuals mentioned a 2.5GHz wireless mode — that was a documentation error and has been corrected.</div>
+      </details>
+      <details>
+        <summary>The keyboard is not detected.</summary>
+        <div class="a">Use a USB-C cable that supports data transfer, try another USB port, and close other keyboard software before connecting.</div>
+      </details>
+      <details>
+        <summary>Does it work with macOS?</summary>
+        <div class="a">Yes. Both Apple silicon and Intel Macs are supported, and the macOS app is signed and notarized by Apple — it opens with a normal double-click.</div>
+      </details>
+      <details>
+        <summary>Do I need the software?</summary>
+        <div class="a">No. The keyboard works plug-and-play. Install the driver only if you want per-key actuation, Rapid Trigger, macros or lighting control.</div>
+      </details>
+      <details>
+        <summary>Which file should I download?</summary>
+        <div class="a">One Windows driver covers the S68. Mac users pick the Apple silicon or Intel build. The manual is device-specific — choose S68.</div>
+      </details>
+    </div>
+  </div>
+
+  <!-- ============ Version history ============ -->
+  <div class="sec-sub" style="padding-bottom:80px">
+    <div class="sec-head">
+      <div class="eyebrow">Version history</div>
+      <h2>Changelog</h2>
+    </div>
+    <div class="verhist">
+      <table>
+        <tr><th>Version</th><th>Date</th><th>Changes</th></tr>
+        <tr>
+          <td>b1037 <span style="color:var(--cyan);font-size:11px">(current)</span></td>
+          <td>2026-10-12</td>
+          <td>Windows driver refreshed; macOS driver added for Apple silicon and Intel, signed and notarized by Apple; User Notes and Customer Guide published.</td>
+        </tr>
+        <tr>
+          <td>v1.0 (initial)</td>
+          <td>2026-10</td>
+          <td>First public release of the SOTRUST download center: S68 Windows driver with per-key actuation, Rapid Trigger, DKS / MT / TGL, macros and RGB lighting.</td>
+        </tr>
+      </table>
+      <div class="prev-note">Looking for a previous version? All builds are archived on the <a href="https://github.com/sotrust-liuke/sotrust-site/releases" target="_blank" rel="noopener">official GitHub releases page</a>.</div>
+    </div>
+  </div>
 </section>
+
+<div id="toast">Download not starting? Use the <b>mirror link</b> shown under the download button.</div>
 
 <footer>
   <div class="wrap">
@@ -199,6 +416,23 @@
     </div>
   </div>
 </footer>
+
+<script>
+// Mirror fallback hint: if the page is still open 12s after a primary download
+// click, chances are the download didn't start — nudge the user to the mirror.
+(function(){
+  var t=null, toast=document.getElementById('toast');
+  document.querySelectorAll('a.dl-primary').forEach(function(a){
+    a.addEventListener('click',function(){
+      if(t)clearTimeout(t);
+      t=setTimeout(function(){
+        if(document.visibilityState==='visible'){toast.classList.add('show');
+          setTimeout(function(){toast.classList.remove('show')},9000);}
+      },12000);
+    });
+  });
+})();
+</script>
 
 </body>
 </html>
