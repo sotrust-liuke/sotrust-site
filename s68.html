@@ -20,6 +20,11 @@
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:28px}
 .gal{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:20px}
 .gal img{width:100%;height:160px;object-fit:contain;background:#0a0f1c;border:1px solid var(--line);border-radius:12px;padding:8px}
+.vid-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:20px}
+.vid{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px}
+.vid video{width:100%;height:auto;border-radius:8px;background:#000;display:block}
+.vid .v-cap{margin-top:10px;font-size:13px;font-weight:600;color:var(--text)}
+.vid .v-sub{font-size:11.5px;color:var(--muted);margin-top:2px}
 @media(max-width:960px){.hero-prod,.two-col,.feature-grid{grid-template-columns:1fr}}
 </style>
 <link rel="canonical" href="https://www.sotrust.net/s68">
@@ -180,6 +185,37 @@
         <img src="assets/products/s68/black-topdown.jpeg" alt="S68 black top-down">
         <img src="assets/products/s68/gradient-keycaps.png" alt="S68 gradient keycaps">
         <img src="assets/products/s68/black-edition.jpeg" alt="S68 black edition">
+      </div>
+      <div style="margin-top:32px">
+        <div class="eyebrow">Videos</div>
+        <h3 style="font-size:18px;margin:8px 0 4px">Watch it in action</h3>
+        <p style="color:var(--muted);font-size:13px;margin-bottom:6px">Performance &amp; design demos — click to play.</p>
+        <div class="vid-grid">
+          <div class="vid">
+            <video controls preload="metadata" playsinline>
+              <source src="assets/videos/s68/8k-polling.mp4" type="video/mp4">
+              Your browser does not support video.
+            </video>
+            <div class="v-cap">Polling Rate Test</div>
+            <div class="v-sub">High-speed reporting demo</div>
+          </div>
+          <div class="vid">
+            <video controls preload="metadata" playsinline>
+              <source src="assets/videos/s68/sound.mp4" type="video/mp4">
+              Your browser does not support video.
+            </video>
+            <div class="v-cap">Sound Profile</div>
+            <div class="v-sub">Typing acoustics demo</div>
+          </div>
+          <div class="vid">
+            <video controls preload="metadata" playsinline>
+              <source src="assets/videos/s68/hardware-intro.mp4" type="video/mp4">
+              Your browser does not support video.
+            </video>
+            <div class="v-cap">Hardware Overview</div>
+            <div class="v-sub">Design &amp; build walkthrough</div>
+          </div>
+        </div>
       </div>
       <div class="soft-call" style="margin-top:28px;background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
         <div>

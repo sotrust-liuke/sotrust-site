@@ -20,6 +20,11 @@
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:28px}
 .gal{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:20px}
 .gal img{width:100%;height:160px;object-fit:contain;background:#0a0f1c;border:1px solid var(--line);border-radius:12px;padding:8px}
+.vid-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:20px}
+.vid{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px}
+.vid video{width:100%;height:auto;border-radius:8px;background:#000;display:block}
+.vid .v-cap{margin-top:10px;font-size:13px;font-weight:600;color:var(--text)}
+.vid .v-sub{font-size:11.5px;color:var(--muted);margin-top:2px}
 .cap-row{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
 .cap-pill{padding:8px 16px;border:1px solid var(--line);border-radius:10px;font-weight:600;font-size:14px}
 .cap-pill b{color:var(--cyan);margin-right:6px}
@@ -169,6 +174,45 @@
         <img src="assets/products/u350/silicone-cap.jpeg" alt="U350 with silicone cap">
         <img src="assets/products/u350/32g.jpg" alt="U350 32GB">
         <img src="assets/products/u350/hero-main.jpg" alt="U350 main view">
+      </div>
+      <div style="margin-top:32px">
+        <div class="eyebrow">Videos</div>
+        <h3 style="font-size:18px;margin:8px 0 4px">Watch it in action</h3>
+        <p style="color:var(--muted);font-size:13px;margin-bottom:6px">Durability &amp; performance demos — click to play.</p>
+        <div class="vid-grid">
+          <div class="vid">
+            <video controls preload="metadata" playsinline>
+              <source src="assets/videos/u350/soak-test.mp4" type="video/mp4">
+              Your browser does not support video.
+            </video>
+            <div class="v-cap">Soak / Waterproof Test</div>
+            <div class="v-sub">Submerged and still working</div>
+          </div>
+          <div class="vid">
+            <video controls preload="metadata" playsinline>
+              <source src="assets/videos/u350/freeze-test.mp4" type="video/mp4">
+              Your browser does not support video.
+            </video>
+            <div class="v-cap">Freeze Test</div>
+            <div class="v-sub">Survives extreme cold</div>
+          </div>
+          <div class="vid">
+            <video controls preload="metadata" playsinline>
+              <source src="assets/videos/u350/heat-test.mp4" type="video/mp4">
+              Your browser does not support video.
+            </video>
+            <div class="v-cap">Heat Test</div>
+            <div class="v-sub">Withstands high temperature</div>
+          </div>
+          <div class="vid">
+            <video controls preload="metadata" playsinline>
+              <source src="assets/videos/u350/magnet-test.mp4" type="video/mp4">
+              Your browser does not support video.
+            </video>
+            <div class="v-cap">Magnet Test</div>
+            <div class="v-sub">Anti-magnetic interference</div>
+          </div>
+        </div>
       </div>
       <div class="soft-call" style="margin-top:28px;background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
         <div>
