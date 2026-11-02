@@ -21,6 +21,7 @@
 .mirror-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:12px;color:var(--muted)}
 .mirror-row a{color:var(--cyan);text-decoration:none}
 .mirror-row a:hover{text-decoration:underline}
+.safe-note{font-size:12px;color:var(--muted);margin:0;line-height:1.5;padding:2px 0}
 .sha{margin-top:12px;font-size:12px;color:var(--muted)}
 .sha summary{cursor:pointer;color:var(--text);font-weight:600;user-select:none}
 .sha summary::marker{color:var(--cyan)}
@@ -147,12 +148,12 @@
       <div>
         <div class="ic">🪟</div>
         <h3>S68 Driver — Windows</h3>
-        <span class="ver">v b1037 · Windows 10 / 11 (64-bit)</span>
+        <span class="ver">v b1042 · Windows 10 / 11 (64-bit)</span>
         <p>Full configuration tool for the S68 magnetic switch keyboard. Configure per-key actuation points, Rapid Trigger, DKS / MT / TGL advanced key actions, macros, and full RGB lighting — all from one native Windows app.</p>
         <div class="dl-meta">
           <span>🖥 Windows 10 / 11 (64-bit) · Win 7 SP1 / 8.1 need .NET 4.8</span>
           <span>💾 2.25 MB</span>
-          <span>📅 2026-10-12</span>
+          <span>📅 2026-11-02</span>
         </div>
         <div class="changelog">
           <b>System requirements:</b>
@@ -173,13 +174,14 @@
         </div>
         <details class="sha">
           <summary>SHA-256 checksum</summary>
-          <code>72fb5a95c84ac23439bc3eaf89936c316a6537a5cdea3e1d2f830920e95b3634</code>
+          <code>83ca1293cd123c2c63e802fe9da2b34978b615f7242ece2945245fb9c86abcac</code>
           <p style="margin-top:8px;font-size:11.5px">Compare with the downloaded file to confirm it is intact: <code style="display:inline;padding:2px 6px;font-size:11px">certutil -hashfile SOTRUST-S68-Setup.exe SHA256</code> (Windows) or <code style="display:inline;padding:2px 6px;font-size:11px">shasum -a 256 SOTRUST-S68-Setup.exe</code>.</p>
         </details>
       </div>
       <div class="dl-actions">
-        <a href="https://github.com/sotrust-liuke/sotrust-site/releases/download/v1.0/SOTRUST-S68-Setup.exe" class="btn primary sm dl-primary">⬇ Download for Windows</a>
-        <div class="mirror-row">Primary link failed? <a href="https://github.com/sotrust-liuke/sotrust-site/releases/latest/download/SOTRUST-S68-Setup.exe">Use the mirror →</a></div>
+        <a href="/assets/downloads/SOTRUST-S68-Setup.exe" class="btn primary sm dl-primary">⬇ Download for Windows</a>
+        <p class="safe-note">✓ This software is safe to use — it is digitally signed by SOTRUST and free of malware.</p>
+        <div class="mirror-row">Primary link failed? <a href="/assets/downloads/SOTRUST-S68-Setup.exe">Use the mirror →</a></div>
         <a href="https://github.com/sotrust-liuke/sotrust-site/releases/download/v1.0/S68-Driver-Windows-User-Notes.txt" class="btn ghost sm" target="_blank" rel="noopener">📄 User Notes</a>
         <a href="https://apps.microsoft.com/" target="_blank" rel="noopener" class="btn ghost sm">🛍 Microsoft Store</a>
       </div>
@@ -266,7 +268,7 @@
         </div>
       </div>
       <div class="dl-actions">
-        <a href="https://github.com/sotrust-liuke/sotrust-site/releases/download/v1.0/SOTRUST-S68-Setup.exe" class="btn ghost sm dl-primary">Get the updater</a>
+        <a href="/assets/downloads/SOTRUST-S68-Setup.exe" class="btn ghost sm dl-primary">Get the updater</a>
       </div>
     </div>
   </div>
@@ -351,7 +353,12 @@
       <table>
         <tr><th>Version</th><th>Date</th><th>Changes</th></tr>
         <tr>
-          <td>b1037 <span style="color:var(--cyan);font-size:11px">(current)</span></td>
+          <td>b1042 <span style="color:var(--cyan);font-size:11px">(current)</span></td>
+          <td>2026-11-02</td>
+          <td>Windows driver updated — fixes for Restore Defaults and F-key remapping; restore-all-keys now works correctly.</td>
+        </tr>
+        <tr>
+          <td>b1037</td>
           <td>2026-10-12</td>
           <td>Windows driver refreshed; macOS driver added for Apple silicon and Intel, signed and notarized by Apple; User Notes and Customer Guide published.</td>
         </tr>
