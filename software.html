@@ -8,20 +8,23 @@
 <link rel="stylesheet" href="css/style.css">
 <style>
 .dl-grid{display:flex;flex-direction:column;gap:20px;padding-bottom:40px}
-.dl-card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:28px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;transition:.2s}
+.dl-card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:28px;transition:.2s}
 .dl-card:hover{border-color:rgba(77,159,255,.4)}
 .dl-card .ic{font-size:30px}
 .dl-card h3{font-size:20px;margin-bottom:4px}
 .dl-card .ver{font-size:13px;color:var(--cyan);font-weight:600}
-.dl-card p{color:var(--muted);font-size:14px;margin-top:8px}
-.dl-meta{display:flex;gap:16px;flex-wrap:wrap;margin-top:14px;font-size:12px;color:var(--muted)}
-.dl-meta span{display:flex;align-items:center;gap:5px}
-.dl-actions{display:flex;flex-direction:column;gap:10px;min-width:180px}
-.dl-actions .btn{min-height:48px;display:inline-flex;align-items:center;justify-content:center;text-align:center}
-.mirror-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:12px;color:var(--muted)}
-.mirror-row a{color:var(--cyan);text-decoration:none}
+.dl-card p{color:var(--muted);font-size:14px;margin-top:8px;max-width:720px}
+.dl-meta{display:flex;gap:16px;flex-wrap:wrap;margin-top:14px;font-size:12.5px;color:var(--muted)}
+.dl-meta span{display:flex;align-items:center;gap:6px}
+.dl-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:22px;padding-top:22px;border-top:1px solid var(--line)}
+.dl-actions .btn{min-height:48px;display:inline-flex;align-items:center;justify-content:center;text-align:center;white-space:nowrap}
+.mirror-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+.mirror-row a{color:var(--cyan);text-decoration:none;font-weight:600}
 .mirror-row a:hover{text-decoration:underline}
-.safe-note{font-size:12px;color:var(--muted);margin:0;line-height:1.5;padding:2px 0}
+.safe-note{font-size:12.5px;color:var(--muted);margin:0;line-height:1.6;flex:1 1 100%;background:rgba(53,224,208,.06);border:1px solid rgba(53,224,208,.18);border-radius:12px;padding:12px 16px}
+.safe-note b{color:var(--cyan)}
+.av-note{font-size:12.5px;color:var(--muted);margin:0;line-height:1.6;flex:1 1 100%;background:rgba(255,180,60,.07);border:1px solid rgba(255,180,60,.22);border-radius:12px;padding:12px 16px}
+.av-note b{color:#ffb43c}
 .sha{margin-top:12px;font-size:12px;color:var(--muted)}
 .sha summary{cursor:pointer;color:var(--text);font-weight:600;user-select:none}
 .sha summary::marker{color:var(--cyan)}
@@ -60,7 +63,7 @@
 #toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--panel);border:1px solid var(--cyan);color:var(--text);font-size:13.5px;padding:13px 20px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:.3s;z-index:99;max-width:90vw}
 #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 .sec-sub{margin-top:56px}
-@media(max-width:960px){.dl-card{grid-template-columns:1fr}.dl-actions{width:100%}.steps-grid{grid-template-columns:1fr}}
+@media(max-width:960px){.dl-actions{flex-direction:column;align-items:stretch}.dl-actions .btn{width:100%}.steps-grid{grid-template-columns:1fr}}
 </style>
 <link rel="canonical" href="https://www.sotrust.net/software">
 <meta property="og:type" content="website">
@@ -180,9 +183,10 @@
       </div>
       <div class="dl-actions">
         <a href="https://apps.microsoft.com/detail/9PC41HSLCVPX" class="btn primary sm dl-primary" target="_blank" rel="noopener">🛍 Get it from Microsoft Store</a>
-        <p class="safe-note">✓ This software is safe to use — it is verified and published by Microsoft, digitally signed by SOTRUST, and free of malware. The Store version installs and updates automatically.</p>
         <div class="mirror-row">Prefer a manual install? <a href="/assets/downloads/SOTRUST-S68-Setup.exe">Download the .exe installer →</a></div>
         <a href="https://github.com/sotrust-liuke/sotrust-site/releases/download/v1.0/S68-Driver-Windows-User-Notes.txt" class="btn ghost sm" target="_blank" rel="noopener">📄 User Notes</a>
+        <p class="safe-note">✓ <b>This software is safe to use</b> — verified and published by Microsoft, digitally signed by SOTRUST, and free of malware. The Store version installs and updates automatically.</p>
+        <p class="av-note">🛡️ <b>Antivirus notice:</b> If your antivirus flags or blocks the installer with a warning, please ignore it — this is a false positive. The program itself is safe.</p>
       </div>
     </div>
 
