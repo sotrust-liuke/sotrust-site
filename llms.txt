@@ -12,6 +12,7 @@ Brand hall-effect magnetic keyboards and USB storage for the North American mark
 ## Software
 
 - [Software & Downloads](https://www.sotrust.net/software): S68 Setup driver and SOTRUST PIANO app, free downloads with version history.
+- [S68 Lab Test Report](https://www.sotrust.net/test): Verified, measured test results for the S68 hall-effect keyboard — 1000Hz polling, 90.3Hz travel frame rate with zero dropped frames, 0.01mm actuation precision, magnetic pole direction, and macro non-blocking. Includes an optional browser-based live polling-rate check (WebHID).
 
 ## Company
 

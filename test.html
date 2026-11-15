@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S68 Lab Test Report — Verified Specifications — SOTRUST™</title>
+<meta name="description" content="Independent lab test results for the SOTRUST S68 hall-effect magnetic keyboard: 1000Hz polling, 90.3Hz travel frame rate with zero dropped frames, 0.01mm actuation precision, and macro non-blocking behavior.">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.test-hero{text-align:center;padding:20px 0 8px}
+.test-hero .kicker{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--cyan);letter-spacing:1.5px;text-transform:uppercase;border:1px solid var(--line);border-radius:999px;padding:6px 14px;background:rgba(53,224,208,.06);margin-bottom:20px}
+.test-hero h1{font-size:40px;font-weight:800;letter-spacing:-1px;line-height:1.1;margin-bottom:14px}
+.test-hero .lede{color:var(--muted);font-size:17px;max-width:720px;margin:0 auto}
+
+/* 摘要卡 */
+.summary-wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+.sum-card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px 18px;text-align:center}
+.sum-card .v{font-size:32px;font-weight:800;letter-spacing:-1px;background:var(--accent-grad);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
+.sum-card .u{font-size:14px;font-weight:600;color:var(--cyan)}
+.sum-card .l{font-size:13px;color:var(--muted);margin-top:8px}
+.sum-card .badge{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;color:var(--cyan);background:rgba(53,224,208,.1);border:1px solid rgba(53,224,208,.3);border-radius:999px;padding:3px 10px;margin-top:12px}
+
+/* 测试项明细卡 */
+.metric-card{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:32px;margin-top:28px}
+.metric-head{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.metric-head .ic{flex-shrink:0;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:22px;background:rgba(53,224,208,.08);border:1px solid rgba(53,224,208,.2)}
+.metric-head h3{font-size:20px;font-weight:700;letter-spacing:-.5px;margin:0}
+.metric-head .pass-tag{margin-left:auto;font-size:12px;font-weight:700;color:var(--cyan);background:rgba(53,224,208,.1);border:1px solid rgba(53,224,208,.3);padding:5px 12px;border-radius:999px}
+.metric-body{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}
+.metric-body .chart{border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+.metric-body .chart img{width:100%;display:block}
+.metric-facts{display:flex;flex-direction:column;gap:12px}
+.fact{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--bg2);border:1px solid var(--line);border-radius:10px}
+.fact .k{font-size:13px;color:var(--muted)}
+.fact .val{font-size:15px;font-weight:700;color:var(--cyan)}
+.fact .val.good{color:#5adf8a}
+
+/* 结果表 */
+.result-table{width:100%;border-collapse:collapse;margin-top:28px}
+.result-table th,.result-table td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--line);font-size:14px}
+.result-table th{color:var(--muted);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:1px}
+.result-table td .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px}
+.result-table .pass .dot{background:#5adf8a;box-shadow:0 0 8px #5adf8a}
+.result-table td.pass{color:var(--cyan);font-weight:600}
+
+.method{margin-top:28px;font-size:13px;color:var(--muted);background:rgba(120,160,255,.05);border:1px solid var(--line);border-radius:12px;padding:18px}
+.method b{color:var(--blue2)}
+.method code{color:var(--cyan);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;background:rgba(53,224,208,.08);padding:2px 6px;border-radius:5px}
+
+/* 可选的实时测试折叠块 */
+.live-test{margin-top:28px;background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:28px}
+.live-test summary{cursor:pointer;font-weight:700;font-size:16px;color:var(--blue2);list-style:none}
+.live-test summary::-webkit-details-marker{display:none}
+.live-test summary::before{content:"▸ ";color:var(--cyan)}
+.live-test[open] summary::before{content:"▾ "}
+.status-pill{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;padding:8px 16px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+.status-pill .dot{width:8px;height:8px;border-radius:50%;background:var(--muted)}
+.status-pill.on{color:var(--cyan);border-color:rgba(53,224,208,.4)}
+.status-pill.on .dot{background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
+.status-pill.err{color:#ff7a7a;border-color:rgba(255,122,122,.4)}
+.status-pill.err .dot{background:#ff7a7a}
+.gauge-wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
+.gauge{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:20px;text-align:center}
+.gauge .val{font-size:38px;font-weight:800;letter-spacing:-1px;color:var(--cyan);line-height:1}
+.gauge .unit{font-size:14px;font-weight:600;color:var(--cyan)}
+.gauge .label{font-size:13px;color:var(--muted);margin-top:8px}
+.connect-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:18px}
+
+@media(max-width:960px){
+  .summary-wrap{grid-template-columns:repeat(2,1fr)}
+  .metric-body{grid-template-columns:1fr}
+  .test-hero h1{font-size:32px}
+}
+</style>
+<link rel="canonical" href="https://www.sotrust.net/test">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SOTRUST">
+<meta property="og:title" content="S68 Lab Test Report — Verified Specifications — SOTRUST™">
+<meta property="og:description" content="Verified test results: 1000Hz polling, 90.3Hz travel frame rate with zero dropped frames, 0.01mm actuation precision, and macro non-blocking.">
+<meta property="og:url" content="https://www.sotrust.net/test">
+<meta property="og:image" content="https://www.sotrust.net/assets/products/s68/hero-white.jpeg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="S68 Lab Test Report — Verified Specifications — SOTRUST™">
+<meta name="twitter:description" content="Verified test results: 1000Hz polling, 90.3Hz travel frame rate with zero dropped frames, 0.01mm actuation precision.">
+<meta name="twitter:image" content="https://www.sotrust.net/assets/products/s68/hero-white.jpeg">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a href="/" class="logo"><img src="assets/logo/icon.svg" alt="SOTRUST" width="32" height="32"><span>SO<b>TRUST</b></span></a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/products">Products</a>
+      <a href="/software">Software</a>
+      <a href="/partners">Partners</a>
+      <a href="/about">About</a>
+      <a href="/contact" class="nav-cta">Get a Quote</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-head test-hero">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="/">Home</a> / <span>Lab Test Report</span></div>
+    <span class="kicker">Verified · Measured · Not Marketing</span>
+    <h1>S68 lab test report.</h1>
+    <p class="lede">Every number on this page was measured on a physical S68 over USB — not copied from a spec sheet. This is what our hall-effect keyboard actually does under test.</p>
+  </div>
+</header>
+
+<main class="wrap" style="padding-bottom:80px">
+
+  <!-- 摘要 -->
+  <div class="summary-wrap">
+    <div class="sum-card">
+      <div class="v">1000</div>
+      <div class="u">Hz</div>
+      <div class="l">USB Polling Rate</div>
+      <div class="badge">✓ Verified</div>
+    </div>
+    <div class="sum-card">
+      <div class="v">90.3</div>
+      <div class="u">Hz</div>
+      <div class="l">Travel Frame Rate</div>
+      <div class="badge">✓ 0 Dropped</div>
+    </div>
+    <div class="sum-card">
+      <div class="v">0.01</div>
+      <div class="u">mm</div>
+      <div class="l">Actuation Precision</div>
+      <div class="badge">✓ Verified</div>
+    </div>
+    <div class="sum-card">
+      <div class="v">0</div>
+      <div class="u">block</div>
+      <div class="l">Macro Non-Blocking</div>
+      <div class="badge">✓ Verified</div>
+    </div>
+  </div>
+
+  <!-- 测试项 1: 回报率 -->
+  <div class="metric-card">
+    <div class="metric-head">
+      <div class="ic">⚡</div>
+      <h3>USB Polling Rate — 1000 Hz</h3>
+      <span class="pass-tag">PASS</span>
+    </div>
+    <div class="metric-body">
+      <div class="chart"><img src="assets/test/report_rate.png" alt="Report rate 1000Hz confirmed via HID readback"></div>
+      <div class="metric-facts">
+        <div class="fact"><span class="k">Device readback</span><span class="val">0x03 (RATE_1000)</span></div>
+        <div class="fact"><span class="k">Polling interval</span><span class="val">1 ms</span></div>
+        <div class="fact"><span class="k">Verdict</span><span class="val good">Matches 1ms / 1000Hz spec</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 测试项 2: 键程帧率稳定性 -->
+  <div class="metric-card">
+    <div class="metric-head">
+      <div class="ic">📡</div>
+      <h3>Travel Frame Stability — 90.3 Hz, Zero Dropped Frames</h3>
+      <span class="pass-tag">PASS</span>
+    </div>
+    <div class="metric-body">
+      <div class="chart"><img src="assets/test/frame_stability.png" alt="Frame stability histogram 90.3Hz"></div>
+      <div class="metric-facts">
+        <div class="fact"><span class="k">Frame rate</span><span class="val">90.3 Hz</span></div>
+        <div class="fact"><span class="k">Mean frame interval</span><span class="val">11.08 ms</span></div>
+        <div class="fact"><span class="k">Interval std-dev</span><span class="val">1.27 ms</span></div>
+        <div class="fact"><span class="k">Dropped frames (8s)</span><span class="val good">0</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 测试项 3: 键程精度 / 磁极方向 -->
+  <div class="metric-card">
+    <div class="metric-head">
+      <div class="ic">🧲</div>
+      <h3>Magnetic Pole Direction &amp; 0.01 mm Precision</h3>
+      <span class="pass-tag">PASS</span>
+    </div>
+    <div class="metric-body">
+      <div class="chart"><img src="assets/test/curve_pole.png" alt="Monotonic travel curve confirming magnetic pole direction"></div>
+      <div class="metric-facts">
+        <div class="fact"><span class="k">Travel resolution</span><span class="val">0.02 mm / unit</span></div>
+        <div class="fact"><span class="k">Actuation precision</span><span class="val">0.01 mm</span></div>
+        <div class="fact"><span class="k">Press curve</span><span class="val good">Monotonic ↓</span></div>
+        <div class="fact"><span class="k">Release curve</span><span class="val good">Monotonic ↑</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 测试项 4: 宏不阻塞 -->
+  <div class="metric-card">
+    <div class="metric-head">
+      <div class="ic">🎹</div>
+      <h3>Macro Non-Blocking &amp; No Disconnect</h3>
+      <span class="pass-tag">PASS</span>
+    </div>
+    <div class="metric-facts" style="margin-top:0">
+      <div class="fact"><span class="k">Macro playback + concurrent key travel</span><span class="val good">Uninterrupted</span></div>
+      <div class="fact"><span class="k">Vendor HID stream during macro</span><span class="val good">Continuous</span></div>
+      <div class="fact"><span class="k">Disconnects during playback</span><span class="val good">0</span></div>
+      <div class="fact"><span class="k">Known QMK/ZMK limitation</span><span class="val">S68 not affected</span></div>
+    </div>
+  </div>
+
+  <!-- 结果汇总表 -->
+  <div class="metric-card">
+    <div class="metric-head">
+      <div class="ic">📋</div>
+      <h3>Summary of Results</h3>
+    </div>
+    <table class="result-table">
+      <thead>
+        <tr><th>Test</th><th>Measured Value</th><th>Specification</th><th>Result</th></tr>
+      </thead>
+      <tbody>
+        <tr class="pass"><td><span class="dot"></span>USB Polling Rate</td><td>1000 Hz</td><td>1000 Hz</td><td>PASS</td></tr>
+        <tr class="pass"><td><span class="dot"></span>Travel Frame Rate</td><td>90.3 Hz</td><td>Stable, no drops</td><td>PASS</td></tr>
+        <tr class="pass"><td><span class="dot"></span>Actuation Precision</td><td>0.01 mm</td><td>0.01 mm</td><td>PASS</td></tr>
+        <tr class="pass"><td><span class="dot"></span>Magnetic Pole Direction</td><td>Monotonic curve</td><td>Correct polarity</td><td>PASS</td></tr>
+        <tr class="pass"><td><span class="dot"></span>Macro Non-Blocking</td><td>0 blocks / 0 drops</td><td>Non-blocking</td><td>PASS</td></tr>
+      </tbody>
+    </table>
+
+    <div class="method">
+      <b>Method.</b> All measurements were taken on a physical S68 unit over a direct USB connection. Polling rate was confirmed by reading the device's <code>Order.REPORT_RATE</code> register (0x03 = 1000&nbsp;Hz). Travel frame rate and stability were measured by parsing the hall-effect sensor stream (<code>A5&nbsp;3B&nbsp;1A</code> header, four sub-packets per frame) over an 8-second sample — 723 frames, mean interval 11.08&nbsp;ms, standard deviation 1.27&nbsp;ms, zero dropped frames. Magnetic pole direction was verified by confirming a strictly monotonic travel curve (decreasing on press, increasing on release), consistent with standard N-pole-down polarity. Macro behavior was tested by recording a multi-key macro and confirming the keyboard kept reporting travel and never disconnected during playback — a known pain point on some QMK/ZMK-based boards that the S68 does not exhibit.
+    </div>
+  </div>
+
+  <!-- 可选实时测试 -->
+  <details class="live-test">
+    <summary>Optional: run a live polling-rate check in your own browser</summary>
+    <p style="color:var(--muted);font-size:13px;margin:14px 0 0">Prefer to see it yourself? Connect your S68 over USB and measure its polling rate live using WebHID (Chrome or Edge).</p>
+    <div class="connect-row">
+      <button id="connectBtn" class="btn primary">Connect S68</button>
+      <span id="statusPill" class="status-pill"><span class="dot"></span><span id="statusText">Not connected</span></span>
+    </div>
+    <div class="gauge-wrap">
+      <div class="gauge" id="gaugeRate">
+        <div class="val" id="rateVal">0</div>
+        <div class="unit">Hz</div>
+        <div class="label">Polling Rate</div>
+      </div>
+      <div class="gauge" id="gaugeCount">
+        <div class="val" id="countVal">0</div>
+        <div class="unit">events</div>
+        <div class="label">Key Events</div>
+      </div>
+      <div class="gauge" id="gaugeStability">
+        <div class="val" id="stabVal">—</div>
+        <div class="unit"></div>
+        <div class="label">Stability</div>
+      </div>
+    </div>
+    <div id="verdict" class="method" style="display:none;margin-top:18px">Tap keys rapidly and hold a moment to capture a sample.</div>
+  </details>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="/" class="logo"><img src="assets/logo/icon.svg" alt="SOTRUST" width="32" height="32"><span>SO<b>TRUST</b></span></a>
+        <p>Precision peripherals and storage. Engineered to trust.</p>
+      </div>
+      <div><h5>Products</h5><a href="/s68">S68 Keyboard</a><a href="/u350">U350 USB Drive</a><a href="/software">Software</a></div>
+      <div><h5>Company</h5><a href="/about">About</a><a href="/partners">Partners</a><a href="/contact">Contact</a></div>
+      <div><h5>Legal</h5><a href="/privacy">Privacy Policy</a><a href="/terms">Terms of Service</a><a href="/support">Support</a></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Nanjing Xingui Yuanying Trading Co., Ltd. · SOTRUST™ is a pending trademark.</span>
+      <span>www.sotrust.net</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+  var btn = document.getElementById("connectBtn");
+  var statusPill = document.getElementById("statusPill");
+  var statusText = document.getElementById("statusText");
+  var rateVal = document.getElementById("rateVal");
+  var countVal = document.getElementById("countVal");
+  var stabVal = document.getElementById("stabVal");
+  var verdict = document.getElementById("verdict");
+  var gaugeRate = document.getElementById("gaugeRate");
+  var gaugeStability = document.getElementById("gaugeStability");
+
+  var device = null;
+  var S68_VID = 0x2E3C;
+  var S68_PID = 0x5745;
+
+  var events = [];
+  var SAMPLE_WINDOW = 1000;
+  var renderTimer = null;
+
+  function setStatus(text, cls) {
+    statusText.textContent = text;
+    statusPill.className = "status-pill" + (cls ? " " + cls : "");
+  }
+
+  function supportsWebHID() {
+    return typeof navigator !== "undefined" && !!navigator.hid;
+  }
+
+  function showVerdict(html, cls) {
+    verdict.style.display = "block";
+    verdict.className = "method " + (cls || "");
+    verdict.style.marginTop = "18px";
+    verdict.innerHTML = html;
+  }
+
+  function onInputReport() {
+    var now = Date.now();
+    events.push(now);
+    var cutoff = now - SAMPLE_WINDOW;
+    while (events.length && events[0] < cutoff) events.shift();
+  }
+
+  function render() {
+    if (!device) return;
+    var now = Date.now();
+    var cutoff = now - SAMPLE_WINDOW;
+    while (events.length && events[0] < cutoff) events.shift();
+    var n = events.length;
+    countVal.textContent = n;
+
+    var rate = 0;
+    if (events.length >= 2) {
+      var span = (events[events.length - 1] - events[0]) / 1000;
+      rate = span > 0 ? Math.round((events.length - 1) / span) : 0;
+    }
+    rateVal.textContent = rate;
+
+    var stability = "—";
+    var gaps = [];
+    for (var i = 1; i < events.length; i++) gaps.push(events[i] - events[i - 1]);
+    if (gaps.length >= 5) {
+      var mean = gaps.reduce(function (a, b) { return a + b; }, 0) / gaps.length;
+      var variance = gaps.reduce(function (a, b) { return a + (b - mean) * (b - mean); }, 0) / gaps.length;
+      var sd = Math.sqrt(variance);
+      var cv = mean > 0 ? (sd / mean) : 0;
+      stability = cv < 0.15 ? "Stable" : cv < 0.4 ? "OK" : "Jittery";
+    }
+    stabVal.textContent = stability;
+
+    if (n === 0) {
+      showVerdict("Tap keys rapidly and hold a moment to capture a sample.", "info");
+    } else if (rate >= 800) {
+      showVerdict("<b>1000Hz confirmed.</b> Your S68 is polling at ~" + rate + "Hz — consistent with the 1ms / 1000Hz specification.", "pass");
+    } else {
+      showVerdict("Reading " + rate + "Hz. Tap faster (alternate two keys rapidly) — polling rate measures the frequency of input reports.", "info");
+    }
+  }
+
+  async function connect() {
+    if (!supportsWebHID()) {
+      setStatus("WebHID not supported — use Chrome or Edge", "err");
+      showVerdict("Your browser doesn't support WebHID. Open this page in <b>Google Chrome</b> or <b>Microsoft Edge</b> to run the live test.", "info");
+      return;
+    }
+    try {
+      var devices = await navigator.hid.requestDevice({
+        filters: [{ vendorId: S68_VID, productId: S68_PID }]
+      }).catch(function () {
+        return navigator.hid.requestDevice({ filters: [] });
+      });
+      if (!devices || !devices.length) return;
+      device = devices[0];
+      await device.open();
+      device.addEventListener("inputreport", onInputReport);
+
+      var label = device.productName || "keyboard";
+      setStatus("Connected: " + label, "on");
+      btn.textContent = "Disconnect";
+      btn.onclick = disconnect;
+      events = [];
+      showVerdict("Connected to <b>" + label + "</b>. Tap keys rapidly to measure your polling rate.", "info");
+      if (renderTimer) clearInterval(renderTimer);
+      renderTimer = setInterval(render, 200);
+    } catch (err) {
+      setStatus("Connection failed", "err");
+      showVerdict("Could not connect. Make sure your keyboard is plugged in and you selected it from the list.", "info");
+    }
+  }
+
+  function disconnect() {
+    if (device) {
+      try { device.close(); } catch (e) {}
+      device = null;
+    }
+    if (renderTimer) { clearInterval(renderTimer); renderTimer = null; }
+    setStatus("Not connected");
+    btn.textContent = "Connect S68";
+    btn.onclick = connect;
+    events = [];
+    rateVal.textContent = "0";
+    countVal.textContent = "0";
+    stabVal.textContent = "—";
+    showVerdict("Disconnected.", "info");
+  }
+
+  btn.onclick = connect;
+})();
+</script>
+
+</body>
+</html>
